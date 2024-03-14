@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<input type="text"  id="searchInput" placeholder="Search...">
+<button onclick="searchPlaylist() ">Search</button>
+
+
+<script>
+  function searchPlaylist() {
+    // Get the input value
+    var searchQuery = document.getElementById('searchInput').value;
+
+    // Perform search functionality or update the page as needed
+    alert("Searching for: " + searchQuery);
+    // You can add more code here to handle the search logic
+
+    // For now, let's just show an alert with the search query
+  }
+</script>
+
+
+
+
+<table border="1">
+<thead>
+<tr>
+				<th>ID</th>
+				<th>Name</th>
+              
+
+</tr>
+</thead>
+
+<tbody>
+<tr th:each="ap:${apl}">
+<td th:text="${ap.id}"></td>
+<td >
+     <ul>
+         <li th:each="s:${ap.songs}">
+         <span th:text="${s.name}"></span>
+         <audio controls>
+         <source th:src="${s.link}">
+         </audio>
+         </li>
+      </ul>
+
+</td>
+
+
+</tr>
+
+</tbody>
+</table>
+</body>
+</html>
